@@ -15,8 +15,10 @@ interface SubCampaign {
 }
 
 interface Advertisement {
+  id: number;
   name: string;
   quantity: number;
+  active?: boolean;
 }
 
 export type { Campaign, CampaignInfo, SubCampaign, Advertisement };
