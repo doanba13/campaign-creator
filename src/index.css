@@ -10,3 +10,7 @@ span {
 .MuiFormControl-root {
   margin-bottom: .5rem !important;
 }
+
+.MuiDialog-paper {
+  width: 600px !important;
+}

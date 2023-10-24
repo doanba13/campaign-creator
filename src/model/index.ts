@@ -15,10 +15,40 @@ interface SubCampaign {
 }
 
 interface Advertisement {
-  id: number;
   name: string;
   quantity: number;
-  active?: boolean;
 }
 
-export type { Campaign, CampaignInfo, SubCampaign, Advertisement };
+interface AdvertisementContext extends Advertisement {
+  id: number;
+  nameError: string;
+  quantityError: string;
+}
+type CampaignInfoContext = CampaignInfo & Error;
+interface SubCampaignContext extends Omit<SubCampaign, "ads">, Error {
+  id: number;
+  ads: AdvertisementContext[];
+}
+interface CampaignContext {
+  information: CampaignInfoContext;
+  subCampaigns: SubCampaignContext[];
+  activeSubCamp: number;
+  validated: boolean;
+  hasError: boolean;
+}
+
+interface Error {
+  error: string;
+}
+
+export type {
+  Campaign,
+  CampaignInfo,
+  SubCampaign,
+  Advertisement,
+  Error,
+  CampaignContext,
+  AdvertisementContext,
+  CampaignInfoContext,
+  SubCampaignContext,
+};

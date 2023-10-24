@@ -1,0 +1,11 @@
+export const UPDATE_CAMP_INFO = "update-information";
+export const NEW_SUB_CAMP = "new-sub-camp";
+export const SELECT_CAMP = "select-camp";
+export const UPDATE_SUB_CAMP_INFO = "update-sub-camp-info";
+export const ADD_NEW_ADS = "add-new-ads";
+export const REMOVE_ADS = "remove-ads";
+export const REMOVE_SUB_CAMP = "remove-sub-camp";
+export const UPDATE_ADS_NAME = "update-ads-name";
+export const UPDATE_ADS_QUANTITY = "update-ads-quantity";
+export const VALIDATE = "validate-data";
+export const RESET_VALIDATE_STATUS = "validate-status-reset";
