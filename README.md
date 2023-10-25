@@ -1,30 +1,27 @@
-# React + TypeScript + Vite
+# Solution overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Breakdown and building UI
 
-Currently, two official plugins are available:
+As the requirement allowed, i am using Material UI for building UI. First, i will break this Advertisement campaign page into two component `CampaignInfo` and `SubCampaign`. The `CampaignInfo` will be the first tab and handle campaign information. The second tab will be `SubCampaign` component, it handle campaign's sub-campaign information.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Component hierarchy](/assets/1.png "Component hierarchy")
 
-## Expanding the ESLint configuration
+I was kind of familiar with UI components frameworks, but i really not deep dive enough into MUI, so i think my UI still kind of boilderplate and not Accessibility friendly.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## State management
 
-- Configure the top-level `parserOptions` property like this:
+`useState` is fundamental API to create state in React, but heavily using it can cause props drill or components tighted with each other when you need to share components state. For easy to share and consume state, i will using a **global store** for manage state.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+There are some options for me like using `ReactContext`, `redux` or `zustand`. Because i will contains input state in the state so it is frequently updated, React Context may not be as effective or efficient as `redux` or `zustand`. But as requirement, i will using `ReactContext` for store, provide data and combine `useReducer` to make state reactive.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+In futute, i will separate current context into multiple contexts as much as possible and keep state close to its component consumer for better optimization.
 
-<!--START_SECTION:waka-->
-<!--END_SECTION:waka-->
+![Using ReactContext for global state](/assets/2.png "Using ReactContext for global state")
+
+## Validate
+
+When create state data, i extends `Campaign` object and it child to add extra empty `error` property. When `submit` event dispatched, action `VALIDATE` send to reducer and if any object in state have invalid value, property error will filled. Any consumer of this `error` property will react to it state and and an error notification popup.
+
+If nothing happen, the state was clean, `DataDisplayDialog` will show it content that extract from state.
+
+![Final component hierarchy](/assets/3.png "Final component hierarchy")
