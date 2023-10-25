@@ -25,3 +25,13 @@ When create state data, i extends `Campaign` object and it child to add extra em
 If nothing happen, the state was clean, `DataDisplayDialog` will show it content that extract from state.
 
 ![Final component hierarchy](/assets/3.png "Final component hierarchy")
+
+## Testing
+
+Since all reducer's method was pure-function, so expecting it result with test will be easy. I implement some test case for `campaign-reducer` using `jest`. All test are inside `__tests__`folder. It's better for config github action for some check when committing code.
+
+So i start this project kinda late, it's all about me. I don't write any test for `React` pieces. I will update later.
+
+Thank you for reading this far, I look forward to receiving frank criticism from experienced developers. ❤️
+
+Have a good day and happy coding

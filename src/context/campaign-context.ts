@@ -43,4 +43,5 @@ export {
   CampaignDispatchContext,
   useCampaign,
   initialCampaign,
+  initialSubCamp,
 };

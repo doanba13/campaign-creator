@@ -1,4 +1,3 @@
-import "./App.css";
 import { CampaignProvider } from "./context/CampaignProvider";
 import Campaign from "./pages/Campaign";
 

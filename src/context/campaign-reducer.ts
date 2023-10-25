@@ -184,7 +184,6 @@ const removeAdvertisements = (
 ): CampaignContext => {
   const campaign = { ...state };
   const subCamp = campaign.subCampaigns.find((c) => c.id === subCampId);
-
   subCamp!.ads = subCamp!.ads.filter((a) => !adsIds.includes(a.id));
 
   return campaign;
