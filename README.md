@@ -10,11 +10,11 @@ I was kind of familiar with UI components frameworks, but i really not deep dive
 
 ## State management
 
-`useState` is fundamental API to create state in React, but heavily using it can cause props drill or components tighted with each other when you need to share components state. For easy to share and consume state, i will using a **global store** for manage state.
+`useState` is fundamental API to create state in React, but heavily using it can cause props drill or components tight with each other when you need to share components state. For easy to share and consume state in this project scenario, i will using a **global store** for manage state.
 
 There are some options for me like using `ReactContext`, `redux` or `zustand`. Because i will contains input state in the state so it is frequently updated, React Context may not be as effective or efficient as `redux` or `zustand`. But as requirement, i will using `ReactContext` for store, provide data and combine `useReducer` to make state reactive.
 
-In futute, i will separate current context into multiple contexts as much as possible and keep state close to its component consumer for better optimization.
+In future, i will separate current context into multiple contexts as much as possible and keep state close to its component consumer for better optimization.
 
 ![Using ReactContext for global state](/assets/2.png "Using ReactContext for global state")
 
@@ -30,8 +30,8 @@ If nothing happen, the state was clean, `DataDisplayDialog` will show it content
 
 Since all reducer's method was pure-function, so expecting it result with test will be easy. I implement some test case for `campaign-reducer` using `jest`. All test are inside `__tests__`folder. It's better for config github action for some check when committing code.
 
-So i start this project kinda late, it's all about me. I don't write any test for `React` pieces. I will update later.
+Because i start this project kinda late, it's all about me. I don't write any test for `React` pieces. I will update later.
 
-Thank you for reading this far, I look forward to receiving frank criticism from experienced developers. ❤️
+Thank you for reading this far, I look forward to receiving frank criticism from experienced developers.
 
-Have a good day and happy coding
+Have a good day and happy coding ❤️
