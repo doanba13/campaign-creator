@@ -157,6 +157,12 @@ const updateSubCampaignInfo = (
   };
 };
 
+const baseAds = {
+  quantity: 0,
+  nameError: "",
+  quantityError: "",
+};
+
 const addNewAdvertisement = (
   state: CampaignContext,
   { id }: SubCampIdentify
@@ -168,11 +174,9 @@ const addNewAdvertisement = (
   subCamp!.ads = [
     ...subCamp!.ads,
     {
+      ...baseAds,
       id: Date.now(),
       name: `Quảng cáo ${subCamp!.ads.length + 1}`,
-      quantity: 0,
-      nameError: "",
-      quantityError: "",
     },
   ];
   return campaign;
@@ -185,6 +189,15 @@ const removeAdvertisements = (
   const campaign = { ...state };
   const subCamp = campaign.subCampaigns.find((c) => c.id === subCampId);
   subCamp!.ads = subCamp!.ads.filter((a) => !adsIds.includes(a.id));
+
+  if (subCamp!.ads.length == 0)
+    subCamp!.ads = [
+      {
+        ...baseAds,
+        id: Date.now(),
+        name: `Quảng cáo ${subCamp!.ads.length + 1}`,
+      },
+    ];
 
   return campaign;
 };
