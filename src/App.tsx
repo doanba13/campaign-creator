@@ -6,11 +6,9 @@ function App() {
   console.log("App render");
 
   return (
-    <>
-      <CampaignProvider>
-        <Campaign />
-      </CampaignProvider>
-    </>
+    <CampaignProvider>
+      <Campaign />
+    </CampaignProvider>
   );
 }
 

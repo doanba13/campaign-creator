@@ -1,4 +1,4 @@
-# Solution overview
+# Project overview
 
 ## Breakdown and building UI
 

@@ -71,7 +71,7 @@ const EnhancedTableToolbar: FC<EnhancedTableToolbarProps> = ({
           id="tableTitle"
           component="div"
         >
-          Danh sách khảo sát
+          Danh sách quảng cáo
         </Typography>
       )}
       {numSelected > 0 ? (
@@ -115,8 +115,8 @@ const headCells: readonly HeadCell[] = [
 
 interface EnhancedTableProps {
   numSelected: number;
-  onSelectAllClick: (event: React.ChangeEvent<HTMLInputElement>) => void;
   rowCount: number;
+  onSelectAllClick: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 function EnhancedTableHead(props: EnhancedTableProps) {
@@ -146,7 +146,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
   );
 }
 
-export default function EnhancedTable() {
+ const AdvertisementTable = () => {
   console.log("Quảng cáo render");
   const { id, ads } = useGetActiveSubCamp();
   const { updateAdvertisementName, updateAdvertisementQuantity } =
@@ -289,3 +289,5 @@ export default function EnhancedTable() {
     </Box>
   );
 }
+
+export default AdvertisementTable;

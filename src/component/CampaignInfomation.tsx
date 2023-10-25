@@ -17,6 +17,7 @@ const CampaignInformation: FC<Props> = () => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     updateCampaignInfo(e.target.name, e.target.value);
   };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleChangeDebounced = useMemo(() => debounce(handleChange, 100), []);
 
   return (

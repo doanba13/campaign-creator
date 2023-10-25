@@ -1,4 +1,4 @@
-import EnhancedTable from "./AdvertisementList";
+import AdvertisementTable from "./AdvertisementTable";
 import SubCampaignList from "./SubCampaignList";
 import SubCampaignInfo from "./SubCampaigntInfo";
 
@@ -7,7 +7,7 @@ const SubCampaign = () => {
     <>
       <SubCampaignList />
       <SubCampaignInfo />
-      <EnhancedTable />
+      <AdvertisementTable />
     </>
   );
 };
